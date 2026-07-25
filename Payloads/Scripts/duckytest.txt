@@ -1,0 +1,19 @@
+REM Discord Webhook Multi-Message Test (ID/TOKEN only)
+DELAY 1000
+GUI r
+DELAY 900
+STRING powershell -NoProfile
+ENTER
+DELAY 900
+STRING $dc='1346196362076622920/NS5h5Ahbw3EnJSqFy0MjRyrRzyGIgBOzR1WDSGrSL8vVYn51kXd98E7tWrJcd7NnbkyH'
+ENTER
+STRING Invoke-RestMethod -Uri "https://discord.com/api/webhooks/$dc" -Method Post -ContentType 'application/json' -Body (@{content="Flipper Zero Test #1"} | ConvertTo-Json -Compress)
+ENTER
+STRING Start-Sleep -Seconds 10
+ENTER
+STRING Invoke-RestMethod -Uri "https://discord.com/api/webhooks/$dc" -Method Post -ContentType 'application/json' -Body (@{content="Flipper Zero Test #2"} | ConvertTo-Json -Compress)
+ENTER
+STRING Start-Sleep -Seconds 10
+ENTER
+STRING Invoke-RestMethod -Uri "https://discord.com/api/webhooks/$dc" -Method Post -ContentType 'application/json' -Body (@{content="Flipper Zero Test #3"} | ConvertTo-Json -Compress)
+ENTER
